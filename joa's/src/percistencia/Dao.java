@@ -12,7 +12,7 @@ public class Dao {
     ResultSet rs;
     
     public void abrirConexao() throws Exception{
-        con = DriverManager.getConnection("jdbc:mysql://", "root", "");
+        con = DriverManager.getConnection("jdbc:mysql://localhost:3306/joas", "root", "");
         System.out.println("Conexão realizada!!!");//Retirar depois do teste.
     }
     

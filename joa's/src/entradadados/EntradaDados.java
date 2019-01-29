@@ -10,6 +10,16 @@ public class EntradaDados {
         vc = new ValidaCodigo();
     }
     
+    public int capturarCodigo() {
+        try {
+            //System.out.println("Informe o código:");
+            String ler = JOptionPane.showInputDialog("Digite o codigo");
+            return Integer.parseInt(ler);
+        } catch (Exception e) {
+            System.out.println("Erro!!! Código Inválido");
+            return capturarCodigo();
+        }
+    }
     
     public String entradaNome(){
         String nome = JOptionPane.showInputDialog("Digite o nome: ");
@@ -21,16 +31,16 @@ public class EntradaDados {
         }
     }
     
-    public String entradaCpf(){
-        String cpf = JOptionPane.showInputDialog("Digite um CPF válido: ");
-        if(vc.verificaCpf(cpf)){
-            return cpf;
-        }else{
-            System.out.println("CPF inválido!!!!");
-            return entradaCpf();
-        }
-        
-    }
+//    public String entradaCpf(){
+//        String cpf = JOptionPane.showInputDialog("Digite um CPF válido: ");
+//        if(vc.verificaCpf(cpf)){
+//            return cpf;
+//        }else{
+//            System.out.println("CPF inválido!!!!");
+//            return entradaCpf();
+//        }
+//        
+//    }
     
     public String entradaTelefone(){//4 ou 5 digitos - 4 digitos.
         //entrada de dados.

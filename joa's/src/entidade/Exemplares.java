@@ -18,7 +18,75 @@ public class Exemplares {
     private int quantidade;
     
     
-    
+
+    public int getCodigo() {
+        return codigo;
+    }
+
+    public void setCodigo(int codigo) {
+        this.codigo = codigo;
+    }
+
+    public String getNome() {
+        return nome;
+    }
+
+    public void setNome(String nome) {
+        this.nome = nome;
+    }
+
+    public String getGenero() {
+        return genero;
+    }
+
+    public void setGenero(String genero) {
+        this.genero = genero;
+    }
+
+    public String getDiretor() {
+        return diretor;
+    }
+
+    public void setDiretor(String diretor) {
+        this.diretor = diretor;
+    }
+
+    public String getSinopse() {
+        return sinopse;
+    }
+
+    public void setSinopse(String sinopse) {
+        this.sinopse = sinopse;
+    }
+
+    public String getNumLocalizacao() {
+        return numLocalizacao;
+    }
+
+    public void setNumLocalizacao(String numLocalizacao) {
+        this.numLocalizacao = numLocalizacao;
+    }
+
+    public String getStatus() {
+        return status;
+    }
+
+    public void setStatus(String status) {
+        this.status = status;
+    }
+
+    public int getQuantidade() {
+        return quantidade;
+    }
+
+    public void setQuantidade(int quantidade) {
+        this.quantidade = quantidade;
+    }
+}
+
+
+
+
 //    public static void main(String[] args) throws Exception{
 //        /*BigDecimal n1 = new BigDecimal("0.1");
 //        BigDecimal n2 = new BigDecimal("0.2");
@@ -52,4 +120,3 @@ public class Exemplares {
 //
 //System.out.println(nome);
 //    }
-}

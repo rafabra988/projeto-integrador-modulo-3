@@ -33,7 +33,7 @@ public class ValidaCodigo {
 //    }
 //    
     public boolean verificaTelefone(String telefone){
-        p = Pattern.compile("[0-9]+\\-[0-9]{9,10}");
+        p = Pattern.compile("^\\([1-9]{2}\\) (?:[2-8]|9[1-9])[0-9]{3}\\-[0-9]{4}$");
         m = p.matcher(telefone);
         return m.matches();
     }
