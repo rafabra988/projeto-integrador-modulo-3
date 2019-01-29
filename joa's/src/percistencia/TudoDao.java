@@ -72,47 +72,60 @@ public class TudoDao extends Dao{
     
     public void apagarFuncionario(int codigo) throws Exception{
         abrirConexao();
-        stmt = con.prepareStatement("Delete from funcionario where codigo = ?");
-        stmt.setString(1, "nomebanco");
-        stmt.setInt(2, codigo);
-        stmt.execute();
-        stmt.close();
-        System.out.println("Dados apagados com sucesso!!!");
+        stmt = con.prepareStatement("Select * from funcionario where codigo = ?");
+        stmt.setInt(1, codigo);
+        rs = stmt.executeQuery();
+        if(rs.next()){
+            stmt.close();
+            rs.close();
+            stmt = con.prepareStatement("Delete from funcionario where codigo = ?");
+            stmt.setInt(1, codigo);
+            stmt.execute();
+            stmt.close();
+            System.out.println("Dados apagados com sucesso!!!");
+        }else{
+            System.out.println("Usuário não encontrado!!!");
+        }
         fecharConexao();
     }
     
-    public void apagarExemplares(int codigo) throws Exception{
-        abrirConexao();
-        stmt = con.prepareStatement("Delete from exemplarar where codigo = ?");
-        stmt.setString(1, "nomebanco");
-        stmt.setInt(2, codigo);
-        stmt.execute();
-        stmt.close();
-        System.out.println("Dados apagados com sucesso!!!");
-        fecharConexao();
-    }
-    //Testar if dentro do metodo para se apagar dentro de determinada tabela
-    public void apagarDistribuidoras(int codigo, int opcao) throws Exception{
-        abrirConexao();
-        stmt = con.prepareStatement("Delete from distribuidora where codigo = ?");
-        stmt.setString(1, "nomebanco");
-        stmt.setInt(2, codigo);
-        stmt.execute();
-        stmt.close();
-        System.out.println("Dados apagados com sucesso!!!");
-        fecharConexao();
-    }
+//    public void apagarExemplares(int codigo) throws Exception{
+//        abrirConexao();
+//        stmt = con.prepareStatement("Delete from exemplarar where codigo = ?");
+//        stmt.setString(1, "nomebanco");
+//        stmt.setInt(2, codigo);
+//        stmt.execute();
+//        stmt.close();
+//        System.out.println("Dados apagados com sucesso!!!");
+//        fecharConexao();
+//    }
+//    //Testar if dentro do metodo para se apagar dentro de determinada tabela
+//    public void apagarDistribuidoras(int codigo, int opcao) throws Exception{
+//        abrirConexao();
+//        stmt = con.prepareStatement("Delete from distribuidora where codigo = ?");
+//        stmt.setString(1, "nomebanco");
+//        stmt.setInt(2, codigo);
+//        stmt.execute();
+//        stmt.close();
+//        System.out.println("Dados apagados com sucesso!!!");
+//        fecharConexao();
+//    }
     public void listar() throws Exception{
         abrirConexao();
-        stmt = con.prepareStatement("Select * from nomebanco");
+        stmt = con.prepareStatement("Select * from funcionario");
         rs = stmt.executeQuery();
         while(rs.next()){
             System.out.println("=-=-=-=-=-Dados de "+rs.getString("nome")+"=-=-=-=-=-=-=-=-");
             System.out.println("Código: "+rs.getInt("codigo"));
             System.out.println("Nome: "+rs.getString("nome"));
+            System.out.println("Telefone: "+rs.getString("telefone"));
+            System.out.println("CEP: "+rs.getString("cep"));
             System.out.println("E-mail: "+rs.getString("email"));
-            System.out.println("Sexo: "+rs.getString("sexo"));
+            System.out.println("RG: "+rs.getString("rg"));
+            System.out.println("Login: "+rs.getString("login"));
+            System.out.println("CPF: "+rs.getString("cpf"));
             System.out.println("");
+            
         }
         rs.close();
         stmt.close();
@@ -123,7 +136,7 @@ public class TudoDao extends Dao{
         abrirConexao();
         Funcionario cl = new Funcionario();
         List<Funcionario> lista = new ArrayList<Funcionario>();
-        stmt = con.prepareStatement("Select * from nomebanco where nome = ?");
+        stmt = con.prepareStatement("Select * from funcionario where nome = ?");
         stmt.setString(1, nome);
         rs = stmt.executeQuery();
         if(rs.next()){
@@ -133,10 +146,18 @@ public class TudoDao extends Dao{
                 cl.setCodigo(rs.getInt("codigo"));
                 System.out.println("Nome: "+rs.getString("nome"));
                 cl.setNome(rs.getString("nome"));
+                System.out.println("CPF: "+rs.getString("cpf"));
+                cl.setNome(rs.getString("cpf"));
+                System.out.println("Telefone: "+rs.getString("telefone"));
+                cl.setNome(rs.getString("telefone"));
+                System.out.println("CEP: "+rs.getString("cep"));
+                cl.setNome(rs.getString("cep"));
                 System.out.println("E-mail: "+rs.getString("email"));
                 cl.setEmail(rs.getString("email"));
-                System.out.println("Sexo: "+rs.getString("sexo"));
-                cl.setRg(rs.getString("sexo"));
+                System.out.println("RG: "+rs.getString("rg"));
+                cl.setNome(rs.getString("rg"));
+                System.out.println("Login: "+rs.getString("login"));
+                cl.setRg(rs.getString("login"));
                 lista.add(cl);
                 System.out.println("");
         }while(rs.next());
@@ -148,5 +169,9 @@ public class TudoDao extends Dao{
         fecharConexao();
         
         return lista;
+    }
+    
+    public /*List<Funcionario>*/void modificar(Funcionario f) throws Exception{
+        
     }
 }
