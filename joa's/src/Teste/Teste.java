@@ -10,11 +10,14 @@ import validacao.ValidaCodigo;
 
 public class Teste {
     public static void main(String[] args) throws Exception{
+        Index inicio = new Index();
+        
     ValidaCodigo vc = new ValidaCodigo();
     Funcionario f = new Funcionario();
     EntradaDados ed = new EntradaDados();
     TudoDao dao = new TudoDao();
-    //f.setCodigo(ed.capturarCodigo());
+        
+//    f.setCodigo(ed.capturarCodigo());
 //    f.setNome(ed.entradaNome());
 //    f.setCep(ed.entradaCep());
 //    f.setEmail(ed.entradaEmail());
@@ -22,10 +25,10 @@ public class Teste {
 //    f.setLogin(ed.entradaLogin());
 //    f.setSenha(ed.entradaSenha());
 //    dao.inserir(f);
-//    dao.apagarFuncionario(3);
-    dao.listar();
-    dao.selecionar("Manuela");
-        //System.out.println(f.toString());
+//    dao.apagarFuncionario(6);
+//   dao.listar();
+//    dao.selecionar("Manuela");
+//        System.out.println(f.toString());
 //    List<String> cpfn = new ArrayList<String>();
 //    String cpf = "12345678910";
 //    int soma = 0;
@@ -35,6 +38,8 @@ public class Teste {
 //     }
 //        System.out.println(soma);
 //    }
-    
+    dao.modificar("desse jeito não vale");
+//    f.logar("yewqhj", "dar4vezes");
+    dao.listar();
 }
 }

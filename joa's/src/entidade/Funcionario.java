@@ -1,5 +1,8 @@
 package entidade;
 
+import percistencia.Dao;
+import percistencia.TudoDao;
+
 public class Funcionario {
     private String login;
     private String senha;
@@ -97,15 +100,13 @@ public class Funcionario {
         this.senha = senha;
     }
     
-    public void logar(String login, String senha){
+    public void logar(String login, String senha) throws Exception{
+        TudoDao td = new TudoDao();
+        td.verificar(login, senha);
         
     }
         
     public void imprimirRelatoriosExemplares(){
-        
-    }
-    
-    public void registrarExemplares(){
         
     }
     
@@ -116,10 +117,4 @@ public class Funcionario {
     public void imprimirFichaLocacao(){
         
     }
-    
-
-    
-
-    
-    
 }
