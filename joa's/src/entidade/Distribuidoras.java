@@ -1,11 +1,21 @@
 package entidade;
 
 public class Distribuidoras {
+
+    private int codigo;
     private String cnpj;
     private String nomeFantasia;
     private String razaoSocial;
     private String telefone;
     private int cei;
+    
+    public int getCodigo() {
+        return codigo;
+    }
+
+    public void setCodigo(int codigo) {
+        this.codigo = codigo;
+    }
 
     public String getCnpj() {
         return cnpj;

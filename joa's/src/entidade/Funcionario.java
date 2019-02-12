@@ -1,6 +1,6 @@
 package entidade;
 
-import percistencia.TudoDao;
+import percistencia.TudoDaoFuncionario;
 
 public class Funcionario {
     private String login;
@@ -100,13 +100,13 @@ public class Funcionario {
     }
     
     public void logar(String login, String senha) throws Exception{
-        TudoDao td = new TudoDao();
+        TudoDaoFuncionario td = new TudoDaoFuncionario();
         td.verificar(login, senha);
         
     }
         
     public void imprimirRelatoriosExemplares() throws Exception{
-        TudoDao td = new TudoDao();
+        TudoDaoFuncionario td = new TudoDaoFuncionario();
         td.listar();
     }
     

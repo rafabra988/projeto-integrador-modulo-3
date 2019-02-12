@@ -21,13 +21,14 @@ public class EntradaDados {
         }
     }
     
-    public String entradaNome(){
-        String nome = JOptionPane.showInputDialog("Digite o nome: ");
+    public String entradaNome(String nome){
+        //String nome = JOptionPane.showInputDialog("Digite o nome: ");
         if(vc.verificaNome(nome)){
             return nome;
         }else{
             System.out.println("Nome não válido");
-            return entradaNome();
+            //return entradaNome();
+            return "False";
         }
     }
     
@@ -53,14 +54,14 @@ public class EntradaDados {
         }
     }
     
-    public String entradaCep(){// 5 digitos - 3 digitos
+    public String entradaCep(String cep){// 5 digitos - 3 digitos
         //entrada de dados
-        String cep = JOptionPane.showInputDialog("Digite o cep: ");
+        //String cep = JOptionPane.showInputDialog("Digite o cep: ");
         if(vc.verificaCep(cep)){
             return cep;
         }else{
             System.out.println("Cep inválido!!");
-            return entradaCep();
+            return entradaCep(cep);
         }
     }
     public String entradaEmail(){

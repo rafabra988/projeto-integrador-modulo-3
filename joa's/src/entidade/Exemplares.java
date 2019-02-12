@@ -11,7 +11,6 @@ public class Exemplares {
     private int codigo;
     private String nome;
     private String genero;
-    private String diretor;
     private String sinopse;
     private String numLocalizacao;
     private String status;//O que é isso???
@@ -41,14 +40,6 @@ public class Exemplares {
 
     public void setGenero(String genero) {
         this.genero = genero;
-    }
-
-    public String getDiretor() {
-        return diretor;
-    }
-
-    public void setDiretor(String diretor) {
-        this.diretor = diretor;
     }
 
     public String getSinopse() {
@@ -82,6 +73,26 @@ public class Exemplares {
     public void setQuantidade(int quantidade) {
         this.quantidade = quantidade;
     }
+    
+    public int aumentar(){
+        this.setQuantidade(this.getQuantidade() + 1);
+        return this.getQuantidade();
+    }
+    
+    public int aumentar(int num){
+        this.setQuantidade(this.getQuantidade() + num);
+        return this.getQuantidade();
+    }
+    public int diminuir(){
+        this.setQuantidade(this.getQuantidade() - 1);
+        return this.getQuantidade();
+    }
+    
+    public int diminuir(int num){
+        this.setQuantidade(this.getQuantidade() - num);
+        return this.getQuantidade();
+    }
+    
 }
 
 
